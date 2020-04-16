@@ -1,6 +1,7 @@
-# Covid-19
+# Covid-19-Library
 This is a java library for getting coronavirus statistics from this website : worldometers.info/coronavirus/
 
+**Extra :** [Click here](https://sajjadamin.com/covid19/) to  download covid 19 statistics tracking android app which is mady by using this library.
 ### Installation
 ##### Android
 - Download JAR files
@@ -25,6 +26,11 @@ for (int i = 0; i < list.size(); i++) {
     String newDeaths = data.getNewDeaths();
     String recovered = data.getTotalRecovered();
     String infectedExists = data.getActiveCases();
+    String str = "Country : "+country+"\nTotal Cases : "+infected+
+                    "\nNew Cases : "+newInfected+"\nTotal Death : "+deaths+
+                    "\nNew Death : "+newDeaths+"\nTotal Recovered : "+recovered+
+                    "\nActive Cases : "+infectedExists+"\n\n";
+    System.out.println(str);
 }
 ```
 Get JSON array
