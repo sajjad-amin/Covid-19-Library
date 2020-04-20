@@ -20,7 +20,7 @@ public class CoronaVirus {
         JSONArray jarray = new JSONArray();
         for (int i = 0; i < tbody.getElementsByTag("tr").size(); i++) {
             Element tr = tbody.getElementsByTag("tr").get(i);
-            String country,total_cases,new_cases,total_deaths,new_deaths,total_recovered,active_cases,serious_cases;
+            String country,total_cases,new_cases,total_deaths,new_deaths,total_recovered,active_cases,serious_cases,tested;
                 country = tr.getElementsByTag("td").get(0).text();
                 total_cases = tr.getElementsByTag("td").get(1).text();
                 new_cases = tr.getElementsByTag("td").get(2).text();
@@ -29,6 +29,7 @@ public class CoronaVirus {
                 total_recovered = tr.getElementsByTag("td").get(5).text();
                 active_cases = tr.getElementsByTag("td").get(6).text();
                 serious_cases = tr.getElementsByTag("td").get(7).text();
+                tested = tr.getElementsByTag("td").get(10).text();
                 if(total_cases.equals("") || total_cases.toLowerCase().equals("n/a")) total_cases = "0";
                 if(new_cases.equals("") || new_cases.toLowerCase().equals("n/a")) new_cases = "0";
                 if(total_deaths.equals("") || total_deaths.toLowerCase().equals("n/a")) total_deaths = "0";
@@ -36,6 +37,7 @@ public class CoronaVirus {
                 if(total_recovered.equals("") || total_recovered.toLowerCase().equals("n/a")) total_recovered = "0";
                 if(active_cases.equals("") || active_cases.toLowerCase().equals("n/a")) active_cases = "0";
                 if(serious_cases.equals("") || serious_cases.toLowerCase().equals("n/a")) serious_cases = "0";
+                if(tested.equals("") || tested.toLowerCase().equals("n/a")) tested = "0";
                 JSONObject jobject = new JSONObject();
                 jobject.put("country", country);
                 jobject.put("total_cases", total_cases);
@@ -45,6 +47,7 @@ public class CoronaVirus {
                 jobject.put("total_recovered", total_recovered);
                 jobject.put("active_cases", active_cases);
                 jobject.put("serious_cases", serious_cases);
+                jobject.put("tested", tested);
                 jarray.put(jobject);
         }
         return jarray.toString();
@@ -55,7 +58,7 @@ public class CoronaVirus {
         Element tbody = document.getElementById("main_table_countries_today").getElementsByTag("tbody").first();
         for (int i = 0; i < tbody.getElementsByTag("tr").size(); i++) {
             Element tr = tbody.getElementsByTag("tr").get(i);
-            String country,total_cases,new_cases,total_deaths,new_deaths,total_recovered,active_cases,serious_cases;
+            String country,total_cases,new_cases,total_deaths,new_deaths,total_recovered,active_cases,serious_cases,tested;
                 country = tr.getElementsByTag("td").get(0).text();
                 total_cases = tr.getElementsByTag("td").get(1).text();
                 new_cases = tr.getElementsByTag("td").get(2).text();
@@ -64,6 +67,7 @@ public class CoronaVirus {
                 total_recovered = tr.getElementsByTag("td").get(5).text();
                 active_cases = tr.getElementsByTag("td").get(6).text();
                 serious_cases = tr.getElementsByTag("td").get(7).text();
+                tested = tr.getElementsByTag("td").get(10).text();
                 if(total_cases.equals("") || total_cases.toLowerCase().equals("n/a")) total_cases = "0";
                 if(new_cases.equals("") || new_cases.toLowerCase().equals("n/a")) new_cases = "0";
                 if(total_deaths.equals("") || total_deaths.toLowerCase().equals("n/a")) total_deaths = "0";
@@ -71,7 +75,8 @@ public class CoronaVirus {
                 if(total_recovered.equals("") || total_recovered.toLowerCase().equals("n/a")) total_recovered = "0";
                 if(active_cases.equals("") || active_cases.toLowerCase().equals("n/a")) active_cases = "0";
                 if(serious_cases.equals("") || serious_cases.toLowerCase().equals("n/a")) serious_cases = "0";
-                list.add(new DataList(country,total_cases,new_cases.replace("+", ""),total_deaths,new_deaths.replace("+", ""),total_recovered,active_cases,serious_cases));
+                if(tested.equals("") || tested.toLowerCase().equals("n/a")) tested = "0";
+                list.add(new DataList(country,total_cases,new_cases.replace("+", ""),total_deaths,new_deaths.replace("+", ""),total_recovered,active_cases,serious_cases,tested));
         }
         return list;
     }

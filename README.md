@@ -26,11 +26,12 @@ for (int i = 0; i < list.size(); i++) {
     String newDeaths = data.getNewDeaths();
     String recovered = data.getTotalRecovered();
     String infectedExists = data.getActiveCases();
-    String str = "Country : "+country+"\nTotal Cases : "+infected+
-                    "\nNew Cases : "+newInfected+"\nTotal Death : "+deaths+
-                    "\nNew Death : "+newDeaths+"\nTotal Recovered : "+recovered+
-                    "\nActive Cases : "+infectedExists+"\n\n";
-    System.out.println(str);
+    String tested = data.getTested();
+    String str = "Country : " + country + "\nTotal Cases : " + infected
+            + "\nNew Cases : " + newInfected + "\nTotal Death : " + deaths
+            + "\nNew Death : " + newDeaths + "\nTotal Recovered : " + recovered
+            + "\nActive Cases : " + infectedExists + "\nSerious Cases : "+serious
+            + "\nTested : "+tested+"\n\n";
 }
 ```
 Get JSON array

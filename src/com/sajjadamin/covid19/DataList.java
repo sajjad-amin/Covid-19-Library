@@ -9,12 +9,12 @@ package com.sajjadamin.covid19;
  * @author sayem
  */
 public class DataList {
-    String countryName,totalCases,newCases,totalDeaths,newDeaths,totalRecovered,activeCases,seriousCases;
+    String countryName,totalCases,newCases,totalDeaths,newDeaths,totalRecovered,activeCases,seriousCases,tested;
 
     public DataList() {
     }
 
-    public DataList(String countryName, String totalCases, String newCases, String totalDeaths, String newDeaths, String totalRecovered, String activeCases, String seriousCases) {
+    public DataList(String countryName, String totalCases, String newCases, String totalDeaths, String newDeaths, String totalRecovered, String activeCases, String seriousCases, String tested) {
         this.countryName = countryName;
         this.totalCases = totalCases;
         this.newCases = newCases;
@@ -23,6 +23,7 @@ public class DataList {
         this.totalRecovered = totalRecovered;
         this.activeCases = activeCases;
         this.seriousCases = seriousCases;
+        this.tested = tested;
     }
 
     public String getCountryName() {
@@ -56,6 +57,10 @@ public class DataList {
     public String getSeriousCases() {
         return seriousCases;
     }
+    
+    public String getTested() {
+        return tested;
+    }
 
     public void setCountryName(String countryName) {
         this.countryName = countryName;
@@ -87,6 +92,10 @@ public class DataList {
 
     public void setSeriousCases(String seriousCases) {
         this.seriousCases = seriousCases;
+    }
+    
+    public void setTested(String tested){
+        this.tested = tested;
     }
     
 }
